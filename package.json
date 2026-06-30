@@ -1,0 +1,13 @@
+{
+  "name": "akalus-global-website",
+  "version": "1.0.0",
+  "description": "Static website for Akalus Global with Firebase Auth and GSAP",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve . -p 3000",
+    "start": "npx serve . -p 3000"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}

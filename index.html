@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKALUs Global | Your Timeless Partners — Personal & Professional Development</title>
+    <meta name="description" content="AKALUs Global helps individuals, academic institutions, and organizations build strengths, overcome challenges, and move closer to their goals through personalized guidance and development solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header id="navbar" class="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="logo">
+                <span class="logo-text">AKAL<span class="logo-accent">Us</span></span>
+                <span class="logo-sub">Global</span>
+                <span class="logo-tagline">Your Timeless Partners</span>
+            </a>
+            <nav class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <div class="nav-dropdown">
+                    <a href="#solutions" class="nav-link">Solutions <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+                    <div class="dropdown-menu rich-dropdown">
+                        <a href="#individuals" class="dropdown-item">
+                            <div class="dropdown-icon" style="color: #2563eb;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title" style="color: #2563eb;">I am an Individual</span>
+                                <span class="dropdown-desc">Explore solutions for your personal & career growth</span>
+                            </div>
+                        </a>
+                        <a href="#solutions" class="dropdown-item">
+                            <div class="dropdown-icon" style="color: #ea580c;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2.12-1.15V17h2V8.27L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72l5 2.73 5-2.73v3.72z"/></svg></div>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title" style="color: #1e3a8a;">I Represent an Academic Institution</span>
+                                <span class="dropdown-desc">Empower students for academic and career success</span>
+                            </div>
+                        </a>
+                        <a href="#organizations" class="dropdown-item">
+                            <div class="dropdown-icon" style="color: #1e40af;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></div>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title" style="color: #1e3a8a;">I Represent an Organization</span>
+                                <span class="dropdown-desc">Build a stronger, future-ready workforce</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#" class="nav-link" id="loginBtn">Sign In</a>
+                <a href="admin.html" class="nav-link" style="display: none;" id="adminLink">Admin</a>
+            </nav>
+            <a href="#individuals" class="nav-cta">Start by Understanding Yourself</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE MENU ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About Us</a>
+        <a href="#solutions" class="mobile-link">Solutions</a>
+        <a href="#individuals" class="mobile-link">For Individuals</a>
+        <a href="#organizations" class="mobile-link">For Organizations</a>
+        <a href="#testimonials" class="mobile-link">Testimonials</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#individuals" class="mobile-cta">Start by Understanding Yourself</a>
+    </div>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="hero-final">
+        <!-- Background Video -->
+        <video class="hero-bg-video" autoplay muted loop playsinline>
+            <source src="https://assets.mixkit.co/videos/4906/4906-720.mp4" type="video/mp4">
+        </video>
+        <div class="hero-bg-video-overlay"></div>
+        <!-- Animated Background Elements -->
+        <div class="hero-bg-shapes">
+            <div class="hero-shape hero-shape-1"></div>
+            <div class="hero-shape hero-shape-2"></div>
+            <div class="hero-shape hero-shape-3"></div>
+        </div>
+        <div class="container hero-final-container">
+            <div class="hero-final-content">
+                <span class="hero-final-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                    Your Timeless Development Partner
+                </span>
+                <h1 class="hero-final-title">
+                    Your Mirror <br>to a <span class="hero-final-accent">Better You</span>
+                </h1>
+                <p class="hero-final-desc">
+                    Helping individuals, academic institutions, and organizations identify strengths, overcome challenges, and move closer to their goals through personalized guidance.
+                </p>
+                <div class="hero-final-btns">
+                    <a href="#individuals" class="hf-btn-primary">
+                        Start by Understanding Yourself
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#solutions" class="hf-btn-ghost">
+                        See How We Can Help
+                    </a>
+                </div>
+            </div>
+            <div class="hero-final-metrics">
+                <div class="hf-metric">
+                    <span class="hf-metric-number">500+</span>
+                    <span class="hf-metric-label">Lives Transformed</span>
+                </div>
+                <div class="hf-metric">
+                    <span class="hf-metric-number">50+</span>
+                    <span class="hf-metric-label">Partner Institutions</span>
+                </div>
+                <div class="hf-metric">
+                    <span class="hf-metric-number">95%</span>
+                    <span class="hf-metric-label">Success Rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHO WE HELP ===== -->
+    <section id="who-we-help" style="background-color: #ffffff; padding: 60px 0 40px;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <h2 style="font-family: 'Outfit', sans-serif; font-size: 2rem; color: #1e293b; display: inline-flex; align-items: center; gap: 1rem;">
+                    <span style="height: 1px; width: 40px; background: #e2e8f0; display: inline-block;"></span>
+                    Who We Help
+                    <span style="height: 1px; width: 40px; background: #e2e8f0; display: inline-block;"></span>
+                </h2>
+                <p style="color: #64748b; font-size: 1rem; margin-top: 0.5rem;">Customized solutions for every individual, institution, and organization we serve.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden;">
+                
+                <div style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem; border-right: 1px solid #e2e8f0;">
+                    <div style="background: #fff7ed; color: #ea580c; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div>
+                        <h3 style="color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">Individuals</h3>
+                        <p style="font-size: 0.9rem; color: #64748b; line-height: 1.6;">Students, graduates, and professionals on a journey towards meaningful careers.</p>
+                        <a href="#individuals" style="color: #ea580c; font-size: 1.2rem; text-decoration: none; margin-top: 0.5rem; display: inline-block;">→</a>
+                    </div>
+                </div>
+
+                <div style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem; border-right: 1px solid #e2e8f0;">
+                    <div style="background: #eff6ff; color: #2563eb; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    </div>
+                    <div>
+                        <h3 style="color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">Academic Institutions</h3>
+                        <p style="font-size: 0.9rem; color: #64748b; line-height: 1.6;">Empowering students with the skills, confidence, and readiness they need to succeed.</p>
+                        <a href="#solutions" style="color: #2563eb; font-size: 1.2rem; text-decoration: none; margin-top: 0.5rem; display: inline-block;">→</a>
+                    </div>
+                </div>
+
+                <div style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem;">
+                    <div style="background: #eff6ff; color: #2563eb; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg>
+                    </div>
+                    <div>
+                        <h3 style="color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">Organizations</h3>
+                        <p style="font-size: 0.9rem; color: #64748b; line-height: 1.6;">Building high-performing teams through learning, development, and organizational excellence.</p>
+                        <a href="#organizations" style="color: #2563eb; font-size: 1.2rem; text-decoration: none; margin-top: 0.5rem; display: inline-block;">→</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== OUR PROMISE ===== -->
+    <section id="solutions" class="section section-dark">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">OUR PROMISE</span>
+                <h2 class="section-title section-title-light">We Do Everything For You,</h2>
+                <p class="section-desc section-desc-light">So That You Can Focus On Preparing Yourself For Opportunities.</p>
+            </div>
+            <div class="promise-grid">
+                <div class="promise-card animate-on-scroll" style="--delay: 0s">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    </div>
+                    <h4>Assessment & Insights</h4>
+                    <p>Deep personal assessment to understand your strengths and areas of growth.</p>
+                </div>
+                <div class="promise-card animate-on-scroll" style="--delay: 0.05s">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h4>Personalized Development</h4>
+                    <p>Custom development plans tailored to your unique profile and goals.</p>
+                </div>
+                <div class="promise-card animate-on-scroll" style="--delay: 0.1s">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                    <h4>One-on-One LIVE Sessions</h4>
+                    <p>Interactive live sessions with experts for focused, individual attention.</p>
+                </div>
+                <div class="promise-card animate-on-scroll" style="--delay: 0.15s">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h4>Continuous Feedback</h4>
+                    <p>Ongoing feedback loops to track your progress and growth trajectory.</p>
+                </div>
+                <div class="promise-card animate-on-scroll" style="--delay: 0.2s">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <h4>Resume & LinkedIn Support</h4>
+                    <p>Professional resume building and LinkedIn profile optimization.</p>
+                </div>
+                <div class="promise-card animate-on-scroll" style="--delay: 0.25s">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                    </div>
+                    <h4>Job Application Support</h4>
+                    <p>End-to-end assistance with job applications and career positioning.</p>
+                </div>
+                <div class="promise-card animate-on-scroll" style="--delay: 0.3s">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h4>Mock Interviews & Expert Feedback</h4>
+                    <p>Real interview experiences with HR professionals and detailed feedback.</p>
+                </div>
+                <div class="promise-card animate-on-scroll" style="--delay: 0.35s">
+                    <div class="promise-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                    </div>
+                    <h4>Certification & Recognition</h4>
+                    <p>Earn a certificate that reflects growth, confidence, and readiness.</p>
+                </div>
+            </div>
+            <div class="promise-tagline animate-on-scroll">
+                <em>We Handhold. We Grow With You. Always As Your Timeless Partners.</em>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INDIVIDUALS ===== -->
+    <section id="individuals" class="section section-light">
+        <div class="container">
+            <div class="individuals-grid">
+                <div class="individuals-left animate-on-scroll">
+                    <span class="ind-badge">I AM AN INDIVIDUAL</span>
+                    <h2 class="ind-title">Your Journey<br>Starts Here.</h2>
+                    <p class="ind-subtitle">(Designed For You)</p>
+                    <p class="ind-desc">Every learner is different. That's why every journey begins with understanding individual strengths, challenges, aspirations, and goals — before creating a personalized development pathway.</p>
+                    <p class="ind-note">"No two journeys are alike. Because every learner is different."</p>
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Start by Understanding Yourself</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+                <div class="individuals-right">
+                    <div class="diff-header animate-on-scroll">
+                        <span class="diff-label">Our Biggest Differentiator</span>
+                        <h3 class="diff-title">Every Journey Is Personalized After Assessment</h3>
+                        <p class="diff-desc">Not everyone gets the same plan. Each learner receives a customized pathway designed around their unique needs, strengths, and aspirations.</p>
+                    </div>
+                    <div class="diff-features">
+                        <div class="diff-feature animate-on-scroll" style="--delay: 0.1s">
+                            <span class="diff-number">5 Stages</span>
+                            <span class="diff-name">Structured Journey</span>
+                        </div>
+                        <div class="diff-feature animate-on-scroll" style="--delay: 0.15s">
+                            <span class="diff-number">1-on-1</span>
+                            <span class="diff-name">LIVE Sessions</span>
+                        </div>
+                        <div class="diff-feature animate-on-scroll" style="--delay: 0.2s">
+                            <span class="diff-number">Real HRs*</span>
+                            <span class="diff-name">Mock Interviews</span>
+                        </div>
+                        <div class="diff-feature animate-on-scroll" style="--delay: 0.25s">
+                            <span class="diff-number">Certificate</span>
+                            <span class="diff-name">Upon Completion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5-STAGE JOURNEY ===== -->
+    <section id="journey" class="section section-gradient">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">YOUR PERSONALIZED JOURNEY</span>
+                <h2 class="section-title section-title-light">From Understanding Yourself to<br>Becoming an Opportunity Magnet</h2>
+            </div>
+            <div class="journey-timeline">
+                <div class="journey-step animate-on-scroll" style="--delay: 0s" data-step="1">
+                    <div class="step-number">1</div>
+                    <h4>Understand Yourself</h4>
+                    <span class="step-tag">CLARITY</span>
+                    <ul>
+                        <li>Personalized Assessment</li>
+                        <li>Strength Identification</li>
+                        <li>Improvement Areas</li>
+                        <li>Development Planning</li>
+                    </ul>
+                </div>
+                <div class="journey-connector"><svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h36M30 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="journey-step animate-on-scroll" style="--delay: 0.1s" data-step="2">
+                    <div class="step-number">2</div>
+                    <h4>Develop Yourself</h4>
+                    <span class="step-tag">GROWTH</span>
+                    <ul>
+                        <li>One-on-One LIVE Sessions</li>
+                        <li>Communication Skills</li>
+                        <li>Confidence Building</li>
+                        <li>Continuous Feedback</li>
+                    </ul>
+                </div>
+                <div class="journey-connector"><svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h36M30 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="journey-step journey-step-highlight animate-on-scroll" style="--delay: 0.2s" data-step="3">
+                    <div class="step-number">3</div>
+                    <h4>Validate Progress</h4>
+                    <span class="step-tag">RECOGNITION</span>
+                    <ul>
+                        <li>Development Review</li>
+                        <li>Final Evaluation</li>
+                        <li>Certificate of Completion</li>
+                    </ul>
+                </div>
+                <div class="journey-connector"><svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h36M30 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="journey-step journey-step-highlight animate-on-scroll" style="--delay: 0.3s" data-step="4">
+                    <div class="step-number">4</div>
+                    <h4>Build Your Presence</h4>
+                    <span class="step-tag">VISIBILITY</span>
+                    <ul>
+                        <li>Resume Development</li>
+                        <li>LinkedIn Profile Optimization</li>
+                        <li>Job Application Support</li>
+                    </ul>
+                </div>
+                <div class="journey-connector"><svg width="40" height="24" viewBox="0 0 40 24"><path d="M0 12h36M30 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+                <div class="journey-step journey-step-highlight animate-on-scroll" style="--delay: 0.4s" data-step="5">
+                    <div class="step-number">5</div>
+                    <h4>Prepare for Opportunities</h4>
+                    <span class="step-tag">OPPORTUNITY MAGNET</span>
+                    <ul>
+                        <li>Mock Interviews</li>
+                        <li>Expert Feedback</li>
+                        <li>Interview Readiness</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COMPARISON ===== -->
+    <section id="comparison" class="section section-light">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">WHAT MAKES US DIFFERENT</span>
+                <h2 class="section-title">What Makes Our Approach Different?</h2>
+                <p class="section-desc">Not just training. A complete, personalized development partnership.</p>
+            </div>
+            <div class="comparison-table animate-on-scroll">
+                <div class="comparison-header">
+                    <div class="comp-col-left">Typical Programs</div>
+                    <div class="comp-col-vs">vs</div>
+                    <div class="comp-col-right">Our Approach</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comp-left"><span class="comp-x">✕</span> Same program for everyone</div>
+                    <div class="comp-right"><span class="comp-check">✓</span> Personalized after individual assessment</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comp-left"><span class="comp-x">✕</span> Batch focused</div>
+                    <div class="comp-right"><span class="comp-check">✓</span> One-on-One, individual focused</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comp-left"><span class="comp-x">✕</span> Training ends after sessions</div>
+                    <div class="comp-right"><span class="comp-check">✓</span> End to end development support</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comp-left"><span class="comp-x">✕</span> Limited feedback</div>
+                    <div class="comp-right"><span class="comp-check">✓</span> Continuous feedback & growth tracking</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comp-left"><span class="comp-x">✕</span> Resume support separate</div>
+                    <div class="comp-right"><span class="comp-check">✓</span> Resume, LinkedIn & job application — integrated</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comp-left"><span class="comp-x">✕</span> Interview prep is basic</div>
+                    <div class="comp-right"><span class="comp-check">✓</span> Structured mock interviews with real professionals*</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comp-left"><span class="comp-x">✕</span> Certificate at the very end</div>
+                    <div class="comp-right"><span class="comp-check">✓</span> Certificate after successful completion of development</div>
+                </div>
+                <div class="comparison-row">
+                    <div class="comp-left"><span class="comp-x">✕</span> Focus on syllabus delivery</div>
+                    <div class="comp-right"><span class="comp-check">✓</span> Focus on outcome and opportunity readiness</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ORGANIZATIONS ===== -->
+    <section id="organizations" class="section section-dark">
+        <div class="container">
+            <div class="org-layout">
+                <div class="org-header animate-on-scroll">
+                    <span class="ind-badge org-badge">I REPRESENT AN ORGANIZATION</span>
+                    <h2 class="section-title section-title-light">Solutions For Your Workforce Development Needs</h2>
+                </div>
+                <div class="org-cards">
+                    <div class="org-card animate-on-scroll" style="--delay: 0.1s">
+                        <div class="org-card-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                        </div>
+                        <h4>Workforce Assessment</h4>
+                        <p>Identify skill gaps and development needs across your teams through structured evaluation and TNA.</p>
+                    </div>
+                    <div class="org-card animate-on-scroll" style="--delay: 0.2s">
+                        <div class="org-card-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <h4>Learning & Development</h4>
+                        <p>Tailored L&D interventions designed to enhance performance, communication, and leadership.</p>
+                    </div>
+                    <div class="org-card animate-on-scroll" style="--delay: 0.3s">
+                        <div class="org-card-icon">
+                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <h4>Organizational Development</h4>
+                        <p>Strategic solutions to build a high-performing, future-ready, and resilient workforce.</p>
+                    </div>
+                </div>
+                <div class="org-journey animate-on-scroll">
+                    <h3 class="org-journey-title">Our Workforce Development Journey</h3>
+                    <div class="org-pipeline">
+                        <div class="pipeline-step">Need Analysis</div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-step">Gap Identification</div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-step">L&D Solutions</div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-step">Implementation</div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-step">Feedback</div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-step">Impact Assessment</div>
+                        <div class="pipeline-arrow">→</div>
+                        <div class="pipeline-step pipeline-step-last">Workforce Growth</div>
+                    </div>
+                    <p class="org-quote">"We partner with organizations to build not just skilled teams, but confident, capable, and growth-driven workforces."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT US ===== -->
+    <section id="about" style="background: #ffffff; padding: 60px 0 40px;">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-left">
+                    <span class="section-label">ABOUT US</span>
+                    <h2 class="section-title">Who We Are</h2>
+                    <p class="about-desc">AKALUs Global is a development and consulting organization that helps individuals, academic institutions, and organizations identify strengths, improve gaps, develop capabilities, and prepare for better opportunities through personalized support.</p>
+                    <div class="about-motto">
+                        <span>WE HANDHOLD. WE GROW WITH YOU.</span>
+                        <span>YOUR TIMELESS PARTNERS.</span>
+                    </div>
+                    <div class="about-not">
+                        <h4>We Are NOT:</h4>
+                        <ul>
+                            <li><span class="not-x">✕</span> Training Institute</li>
+                            <li><span class="not-x">✕</span> Placement Agency</li>
+                            <li><span class="not-x">✕</span> Resume Writing Company</li>
+                            <li><span class="not-x">✕</span> Coaching Center</li>
+                        </ul>
+                        <p class="about-are">We ARE: <strong>A Development &amp; Consulting Partner</strong></p>
+                    </div>
+                </div>
+                <div class="about-right">
+                    <div class="leader-card">
+                        <div class="leader-header">
+                            <span class="section-label">Leadership &amp; Expertise</span>
+                        </div>
+                        <div class="leader-profile">
+                            <div class="leader-avatar">SB</div>
+                            <div class="leader-info">
+                                <h3>Sonakshi Bindrani</h3>
+                                <p class="leader-role">Director — Learning, Employability &amp; Capability Development</p>
+                                <div class="leader-details">
+                                    <span>🔗 linkedin.com/in/sonakshi-bindrani</span>
+                                    <span>📍 Jaipur, Rajasthan</span>
+                                </div>
+                                <span class="leader-tag">Ph.D Researcher</span>
+                            </div>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="800">0</span><span class="stat-plus">+</span>
+                                <span class="stat-label">Students Trained</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="250">0</span><span class="stat-plus">+</span>
+                                <span class="stat-label">Hours Delivered</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="10">0</span><span class="stat-plus">+</span>
+                                <span class="stat-label">Institutions</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">Top</span>
+                                <span class="stat-label-big">2000</span>
+                                <span class="stat-label">Speakers Nationally</span>
+                            </div>
+                        </div>
+                        <div class="notable-invitations">
+                            <h4>Notable Invitations</h4>
+                            <div class="invitation-tags">
+                                <span>MIMS Mumbai</span>
+                                <span>Vivekananda Global University</span>
+                                <span>R.A. Podar Institute</span>
+                                <span>Suresh Gyan Vihar University</span>
+                                <span>St. Angela Sophia School</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Impact Gallery Strip -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px;">
+                <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+                    <img src="images/professional_consulting_1782720591087.png" alt="Professional Consulting" style="width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                </div>
+                <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+                    <img src="images/team_workshop_1782720620523.png" alt="Team Workshop" style="width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                </div>
+                <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+                    <img src="images/individual_coaching_1782720634152.png" alt="Individual Coaching" style="width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="section section-gradient">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">TESTIMONIALS</span>
+                <h2 class="section-title section-title-light">What Our Learners Say</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card animate-on-scroll" style="--delay: 0.1s">
+                    <div class="testimonial-quote">"</div>
+                    <p>The personalized approach made all the difference. I finally understood my strengths and was guided step-by-step towards my career goals. The mock interviews with real HRs were a game-changer!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div>
+                            <strong>Rahul Kumar</strong>
+                            <span>Engineering Graduate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll" style="--delay: 0.2s">
+                    <div class="testimonial-quote">"</div>
+                    <p>Unlike typical training programs, AKALUs Global actually cared about my individual growth. The 1-on-1 sessions and continuous feedback helped me gain immense confidence.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PS</div>
+                        <div>
+                            <strong>Priya Sharma</strong>
+                            <span>MBA Student</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card animate-on-scroll" style="--delay: 0.3s">
+                    <div class="testimonial-quote">"</div>
+                    <p>The structured 5-stage journey was eye-opening. From assessment to interview readiness, every step was designed for my growth. I feel prepared and confident like never before.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div>
+                            <strong>Amit Singh</strong>
+                            <span>Working Professional</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT / CTA ===== -->
+    <section id="contact" class="section section-light">
+        <div class="container">
+            <div class="cta-section animate-on-scroll">
+                <h2>Ready To Begin Your Journey?</h2>
+                <p>Take the first step towards a better, more confident, and opportunity-ready you.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:hello@akalusglobal.in" class="btn btn-primary">
+                        <span>Start by Understanding Yourself</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="#solutions" class="btn btn-secondary-dark">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                        <span>See How We Can Help</span>
+                    </a>
+                </div>
+            </div>
+            <div class="contact-grid animate-on-scroll">
+                <div class="contact-header">
+                    <span class="section-label">GET IN TOUCH</span>
+                </div>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <span class="contact-icon">📧</span>
+                        <span class="contact-type">Email</span>
+                        <span class="contact-value">hello@akalusglobal.in</span>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-icon">📞</span>
+                        <span class="contact-type">Phone</span>
+                        <span class="contact-value">+91 XXXXX XXXXX</span>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-icon">🌐</span>
+                        <span class="contact-type">Website</span>
+                        <span class="contact-value">www.akalusglobal.in</span>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-icon">📍</span>
+                        <span class="contact-type">Location</span>
+                        <span class="contact-value">Jaipur, Rajasthan, India</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-text">AKAL<span class="logo-accent">Us</span></span>
+                        <span class="logo-sub">Global</span>
+                    </div>
+                    <p class="footer-tagline">We Handhold. We Grow With You.<br>Always As Your Timeless Partners.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <a href="#hero">Home</a>
+                        <a href="#about">About Us</a>
+                        <a href="#solutions">Solutions</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Solutions</h4>
+                        <a href="#individuals">For Individuals</a>
+                        <a href="#organizations">For Organizations</a>
+                        <a href="#journey">Personalized Journey</a>
+                        <a href="#comparison">Our Approach</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Connect</h4>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Instagram</a>
+                        <a href="mailto:hello@akalusglobal.in">Email Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AKALUs Global. All rights reserved.</p>
+                <div class="footer-segments">
+                    <a href="#individuals">Individuals</a>
+                    <span>|</span>
+                    <a href="#">Academic Institutions</a>
+                    <span>|</span>
+                    <a href="#organizations">Organizations</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ===== AUTH MODAL ===== -->
+    <div id="authModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <button id="closeAuthModal" class="close-modal">&times;</button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Sign In</button>
+                <button class="auth-tab" data-tab="register">Sign Up</button>
+            </div>
+            
+            <form id="loginForm" class="auth-form active">
+                <h2>Welcome Back</h2>
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary auth-submit">Sign In</button>
+            </form>
+
+            <form id="registerForm" class="auth-form">
+                <h2>Create Account</h2>
+                <div class="form-group">
+                    <input type="text" id="registerName" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="registerEmail" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPassword" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary auth-submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- GSAP for Professional Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Firebase Modules -->
+    <script type="module" src="firebase-config.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
