@@ -70,6 +70,7 @@
         <a href="#organizations" class="mobile-link">For Organizations</a>
         <a href="#testimonials" class="mobile-link">Testimonials</a>
         <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#" class="mobile-link" id="mobileLoginBtn">Sign In</a>
         <a href="#individuals" class="mobile-cta">Start by Understanding Yourself</a>
     </div>
 
@@ -126,51 +127,62 @@
     </section>
 
     <!-- ===== WHO WE HELP ===== -->
-    <section id="who-we-help" style="background-color: #ffffff; padding: 60px 0 40px;">
+    <section id="who-we-help" class="who-we-help">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <h2 style="font-family: 'Outfit', sans-serif; font-size: 2rem; color: #1e293b; display: inline-flex; align-items: center; gap: 1rem;">
-                    <span style="height: 1px; width: 40px; background: #e2e8f0; display: inline-block;"></span>
+            <div class="who-help-header">
+                <h2 class="who-help-title">
+                    <span class="who-help-title-line"></span>
                     Who We Help
-                    <span style="height: 1px; width: 40px; background: #e2e8f0; display: inline-block;"></span>
+                    <span class="who-help-title-line"></span>
                 </h2>
-                <p style="color: #64748b; font-size: 1rem; margin-top: 0.5rem;">Customized solutions for every individual, institution, and organization we serve.</p>
+                <p class="who-help-subtitle">Customized solutions for every individual, institution, and organization we serve.</p>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: #f8fafc; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden;">
-                
-                <div style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem; border-right: 1px solid #e2e8f0;">
-                    <div style="background: #fff7ed; color: #ea580c; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </div>
-                    <div>
-                        <h3 style="color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">Individuals</h3>
-                        <p style="font-size: 0.9rem; color: #64748b; line-height: 1.6;">Students, graduates, and professionals on a journey towards meaningful careers.</p>
-                        <a href="#individuals" style="color: #ea580c; font-size: 1.2rem; text-decoration: none; margin-top: 0.5rem; display: inline-block;">→</a>
-                    </div>
-                </div>
+            <div class="who-help-carousel" id="whoHelpCarousel">
+                <div class="who-help-track">
+                    
+                    <a href="#individuals" class="who-help-orb">
+                        <div class="orb-circle orb-circle--orange">
+                            <div class="orb-icon-ring">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                            <div class="orb-pulse"></div>
+                        </div>
+                        <h3 class="orb-title">Individuals</h3>
+                        <p class="orb-desc">Students, graduates & professionals on a journey towards meaningful careers.</p>
+                        <span class="orb-cta">Explore <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </a>
 
-                <div style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem; border-right: 1px solid #e2e8f0;">
-                    <div style="background: #eff6ff; color: #2563eb; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                    </div>
-                    <div>
-                        <h3 style="color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">Academic Institutions</h3>
-                        <p style="font-size: 0.9rem; color: #64748b; line-height: 1.6;">Empowering students with the skills, confidence, and readiness they need to succeed.</p>
-                        <a href="#solutions" style="color: #2563eb; font-size: 1.2rem; text-decoration: none; margin-top: 0.5rem; display: inline-block;">→</a>
-                    </div>
-                </div>
+                    <a href="#solutions" class="who-help-orb">
+                        <div class="orb-circle orb-circle--blue">
+                            <div class="orb-icon-ring">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            </div>
+                            <div class="orb-pulse"></div>
+                        </div>
+                        <h3 class="orb-title">Academic Institutions</h3>
+                        <p class="orb-desc">Empowering students with skills, confidence & readiness they need to succeed.</p>
+                        <span class="orb-cta">Explore <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </a>
 
-                <div style="padding: 2rem; display: flex; align-items: flex-start; gap: 1rem;">
-                    <div style="background: #eff6ff; color: #2563eb; padding: 12px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg>
-                    </div>
-                    <div>
-                        <h3 style="color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">Organizations</h3>
-                        <p style="font-size: 0.9rem; color: #64748b; line-height: 1.6;">Building high-performing teams through learning, development, and organizational excellence.</p>
-                        <a href="#organizations" style="color: #2563eb; font-size: 1.2rem; text-decoration: none; margin-top: 0.5rem; display: inline-block;">→</a>
-                    </div>
-                </div>
+                    <a href="#organizations" class="who-help-orb">
+                        <div class="orb-circle orb-circle--navy">
+                            <div class="orb-icon-ring">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg>
+                            </div>
+                            <div class="orb-pulse"></div>
+                        </div>
+                        <h3 class="orb-title">Organizations</h3>
+                        <p class="orb-desc">Building high-performing teams through learning, development & organizational excellence.</p>
+                        <span class="orb-cta">Explore <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                    </a>
 
+                </div>
+                <!-- Scroll indicator dots -->
+                <div class="carousel-dots" id="carouselDots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
             </div>
         </div>
     </section>
@@ -464,7 +476,7 @@
     </section>
 
     <!-- ===== ABOUT US ===== -->
-    <section id="about" style="background: #ffffff; padding: 60px 0 40px;">
+    <section id="about" class="section section-light" style="padding: 60px 0 40px;">
         <div class="container">
             <div class="about-grid">
                 <div class="about-left">
@@ -536,15 +548,15 @@
                 </div>
             </div>
             <!-- Impact Gallery Strip -->
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px;">
-                <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-                    <img src="images/professional_consulting_1782720591087.png" alt="Professional Consulting" style="width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <div class="impact-gallery">
+                <div class="impact-gallery-item">
+                    <img src="images/professional_consulting_1782720591087.png" alt="Professional Consulting" loading="lazy">
                 </div>
-                <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-                    <img src="images/team_workshop_1782720620523.png" alt="Team Workshop" style="width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="impact-gallery-item">
+                    <img src="images/team_workshop_1782720620523.png" alt="Team Workshop" loading="lazy">
                 </div>
-                <div style="border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
-                    <img src="images/individual_coaching_1782720634152.png" alt="Individual Coaching" style="width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div class="impact-gallery-item">
+                    <img src="images/individual_coaching_1782720634152.png" alt="Individual Coaching" loading="lazy">
                 </div>
             </div>
         </div>
@@ -617,22 +629,22 @@
                     <span class="section-label">GET IN TOUCH</span>
                 </div>
                 <div class="contact-cards">
-                    <div class="contact-card">
+                    <a href="mailto:hello@akalusglobal.in" class="contact-card-link">
                         <span class="contact-icon">📧</span>
                         <span class="contact-type">Email</span>
                         <span class="contact-value">hello@akalusglobal.in</span>
-                    </div>
-                    <div class="contact-card">
+                    </a>
+                    <a href="tel:+91XXXXXXXXXX" class="contact-card-link">
                         <span class="contact-icon">📞</span>
                         <span class="contact-type">Phone</span>
                         <span class="contact-value">+91 XXXXX XXXXX</span>
-                    </div>
-                    <div class="contact-card">
+                    </a>
+                    <a href="https://www.akalusglobal.in" target="_blank" rel="noopener noreferrer" class="contact-card-link">
                         <span class="contact-icon">🌐</span>
                         <span class="contact-type">Website</span>
                         <span class="contact-value">www.akalusglobal.in</span>
-                    </div>
-                    <div class="contact-card">
+                    </a>
+                    <div class="contact-card-link" style="cursor: default;">
                         <span class="contact-icon">📍</span>
                         <span class="contact-type">Location</span>
                         <span class="contact-value">Jaipur, Rajasthan, India</span>
@@ -677,7 +689,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 AKALUs Global. All rights reserved.</p>
+                <p>&copy; 2025–2026 AKALUs Global. All rights reserved.</p>
                 <div class="footer-segments">
                     <a href="#individuals">Individuals</a>
                     <span>|</span>
@@ -700,10 +712,12 @@
             <form id="loginForm" class="auth-form active">
                 <h2>Welcome Back</h2>
                 <div class="form-group">
-                    <input type="email" id="loginEmail" placeholder="Email Address" required>
+                    <label for="loginEmail" class="sr-only">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="Email Address" required autocomplete="email">
                 </div>
                 <div class="form-group">
-                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <label for="loginPassword" class="sr-only">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Password" required autocomplete="current-password">
                 </div>
                 <button type="submit" class="btn btn-primary auth-submit">Sign In</button>
             </form>
@@ -711,18 +725,28 @@
             <form id="registerForm" class="auth-form">
                 <h2>Create Account</h2>
                 <div class="form-group">
-                    <input type="text" id="registerName" placeholder="Full Name" required>
+                    <label for="registerName" class="sr-only">Full Name</label>
+                    <input type="text" id="registerName" placeholder="Full Name" required autocomplete="name">
                 </div>
                 <div class="form-group">
-                    <input type="email" id="registerEmail" placeholder="Email Address" required>
+                    <label for="registerEmail" class="sr-only">Email Address</label>
+                    <input type="email" id="registerEmail" placeholder="Email Address" required autocomplete="email">
                 </div>
                 <div class="form-group">
-                    <input type="password" id="registerPassword" placeholder="Password" required>
+                    <label for="registerPassword" class="sr-only">Password</label>
+                    <input type="password" id="registerPassword" placeholder="Password" required autocomplete="new-password">
                 </div>
                 <button type="submit" class="btn btn-primary auth-submit">Sign Up</button>
             </form>
         </div>
     </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <!-- GSAP for Professional Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

@@ -4,6 +4,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // === Detect touch device ===
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
     // === Scroll Animations (Intersection Observer) ===
     const observerOptions = {
         root: null,
@@ -71,29 +74,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
 
+    const openMobileMenu = () => {
+        hamburger.classList.add('active');
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeMobileMenu = () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
     hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        if (mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
     });
 
     // Close mobile menu on link click
     document.querySelectorAll('.mobile-link, .mobile-cta').forEach(link => {
         link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
+            closeMobileMenu();
         });
     });
 
     // === Smooth Scroll for Anchor Links ===
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
+            const href = anchor.getAttribute('href');
+            if (href === '#') return; // Skip "#" only links (like Sign In)
+            
             e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
                 const navHeight = navbar.offsetHeight;
-                const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+                const offset = window.innerWidth <= 768 ? 10 : 20; // Less offset on mobile
+                const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight - offset;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -146,14 +165,16 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     }
 
-    // === Parallax effect for hero visual ===
-    const heroVisual = document.querySelector('.hero-visual');
-    if (heroVisual) {
-        window.addEventListener('mousemove', (e) => {
-            const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
-            const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
-            heroVisual.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        });
+    // === Parallax effect for hero visual (DESKTOP ONLY) ===
+    if (!isTouchDevice) {
+        const heroVisual = document.querySelector('.hero-visual');
+        if (heroVisual) {
+            window.addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
+                heroVisual.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        }
     }
 
     // === Pipeline step hover effect ===
@@ -190,28 +211,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     createScrollProgress();
 
-    // === Tilt effect for cards on hover ===
-    const addTiltEffect = (selector) => {
-        document.querySelectorAll(selector).forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / centerY * -3;
-                const rotateY = (x - centerX) / centerX * 3;
+    // === Tilt effect for cards on hover (DESKTOP ONLY) ===
+    if (!isTouchDevice) {
+        const addTiltEffect = (selector) => {
+            document.querySelectorAll(selector).forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / centerY * -3;
+                    const rotateY = (x - centerX) / centerX * 3;
 
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+                });
             });
+        };
 
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-            });
-        });
-    };
-
-    addTiltEffect('.help-card');
+        addTiltEffect('.who-help-orb');
+    }
 
     // === Auto-scroll testimonials on mobile ===
     if (window.innerWidth < 768) {
@@ -226,75 +249,166 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // === Who We Help — Carousel Dot Navigation ===
+    const carouselTrack = document.querySelector('.who-help-track');
+    const carouselDots = document.querySelectorAll('.carousel-dots .dot');
+    if (carouselTrack && carouselDots.length) {
+        // Sync dots with scroll position
+        carouselTrack.addEventListener('scroll', () => {
+            const scrollLeft = carouselTrack.scrollLeft;
+            const trackWidth = carouselTrack.scrollWidth - carouselTrack.clientWidth;
+            const orbs = carouselTrack.querySelectorAll('.who-help-orb');
+            const orbCount = orbs.length;
+            if (orbCount === 0 || trackWidth === 0) return;
+
+            const progress = scrollLeft / trackWidth;
+            const activeIndex = Math.round(progress * (orbCount - 1));
+
+            carouselDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === activeIndex);
+            });
+        }, { passive: true });
+
+        // Click on dot to scroll
+        carouselDots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                const orbs = carouselTrack.querySelectorAll('.who-help-orb');
+                if (orbs[i]) {
+                    orbs[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
+            });
+        });
+    }
+
+    // ============================================
+    // BACK TO TOP BUTTON
+    // ============================================
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }, { passive: true });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
     // ============================================
     // AUTH MODAL LOGIC
     // ============================================
     const authModal = document.getElementById('authModal');
     const loginBtn = document.getElementById('loginBtn');
+    const mobileLoginBtn = document.getElementById('mobileLoginBtn');
     const closeAuthModal = document.getElementById('closeAuthModal');
     const authTabs = document.querySelectorAll('.auth-tab');
     const authForms = document.querySelectorAll('.auth-form');
 
-    if (loginBtn && authModal) {
-        loginBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+    const openAuthModal = () => {
+        if (authModal) {
             authModal.classList.add('show');
             document.body.style.overflow = 'hidden';
-        });
+        }
+    };
 
-        closeAuthModal.addEventListener('click', () => {
+    const closeAuthModalFn = () => {
+        if (authModal) {
             authModal.classList.remove('show');
             document.body.style.overflow = '';
-        });
+        }
+    };
 
-        // Close on outside click
-        window.addEventListener('click', (e) => {
-            if (e.target === authModal) {
-                authModal.classList.remove('show');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Tab Switching
-        authTabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                authTabs.forEach(t => t.classList.remove('active'));
-                authForms.forEach(f => f.classList.remove('active'));
-                
-                tab.classList.add('active');
-                document.getElementById(`${tab.dataset.tab}Form`).classList.add('active');
-            });
-        });
-
-        // Mock Firebase Logic (Simulated since we don't have real keys yet)
-        document.getElementById('loginForm')?.addEventListener('submit', (e) => {
+    if (loginBtn) {
+        loginBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            const btn = e.target.querySelector('button');
-            const originalText = btn.textContent;
-            btn.textContent = "Authenticating...";
-            setTimeout(() => {
-                btn.textContent = originalText;
-                alert("Mock Login Successful! Proceeding as Admin for demonstration.");
-                authModal.classList.remove('show');
-                document.body.style.overflow = '';
-                document.getElementById('loginBtn').style.display = 'none';
-                document.getElementById('adminLink').style.display = 'block';
-            }, 1000);
-        });
-
-        document.getElementById('registerForm')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = e.target.querySelector('button');
-            const originalText = btn.textContent;
-            btn.textContent = "Creating Account...";
-            setTimeout(() => {
-                btn.textContent = originalText;
-                alert("Mock Registration Successful! Database logic triggered.");
-                authModal.classList.remove('show');
-                document.body.style.overflow = '';
-            }, 1000);
+            openAuthModal();
         });
     }
+
+    // Mobile Sign In button
+    if (mobileLoginBtn) {
+        mobileLoginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeMobileMenu();
+            // Small delay so menu closes first
+            setTimeout(openAuthModal, 300);
+        });
+    }
+
+    if (closeAuthModal) {
+        closeAuthModal.addEventListener('click', closeAuthModalFn);
+    }
+
+    // Close on outside click
+    if (authModal) {
+        window.addEventListener('click', (e) => {
+            if (e.target === authModal) {
+                closeAuthModalFn();
+            }
+        });
+    }
+
+    // Tab Switching
+    authTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            authTabs.forEach(t => t.classList.remove('active'));
+            authForms.forEach(f => f.classList.remove('active'));
+            
+            tab.classList.add('active');
+            document.getElementById(`${tab.dataset.tab}Form`).classList.add('active');
+        });
+    });
+
+    // Mock Firebase Logic (Simulated since we don't have real keys yet)
+    document.getElementById('loginForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        const originalText = btn.textContent;
+        btn.textContent = "Authenticating...";
+        setTimeout(() => {
+            btn.textContent = originalText;
+            alert("Mock Login Successful! Proceeding as Admin for demonstration.");
+            closeAuthModalFn();
+            document.getElementById('loginBtn').style.display = 'none';
+            if (mobileLoginBtn) mobileLoginBtn.style.display = 'none';
+            document.getElementById('adminLink').style.display = 'block';
+        }, 1000);
+    });
+
+    document.getElementById('registerForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        const originalText = btn.textContent;
+        btn.textContent = "Creating Account...";
+        setTimeout(() => {
+            btn.textContent = originalText;
+            alert("Mock Registration Successful! Database logic triggered.");
+            closeAuthModalFn();
+        }, 1000);
+    });
+
+    // ============================================
+    // KEYBOARD SUPPORT (Escape key)
+    // ============================================
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            // Close mobile menu
+            if (mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+            // Close auth modal
+            if (authModal && authModal.classList.contains('show')) {
+                closeAuthModalFn();
+            }
+        }
+    });
 
     // ============================================
     // GSAP ANIMATIONS (Trending & Professional)
@@ -302,22 +416,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero Content Parallax & Fade
-        gsap.from(".hero-title", { y: 50, opacity: 0, duration: 1, ease: "power3.out", delay: 0.2 });
-        gsap.from(".hero-desc", { y: 30, opacity: 0, duration: 1, ease: "power3.out", delay: 0.4 });
-        gsap.from(".hero-actions", { y: 30, opacity: 0, duration: 1, ease: "power3.out", delay: 0.6 });
-        
-        // Parallax visual element
-        gsap.to(".hero-visual", {
-            yPercent: 30,
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".hero",
-                start: "top top",
-                end: "bottom top",
-                scrub: true
-            }
-        });
+        // Hero Final Content — corrected selectors
+        gsap.from(".hero-final-title", { y: 50, opacity: 0, duration: 1, ease: "power3.out", delay: 0.2 });
+        gsap.from(".hero-final-desc", { y: 30, opacity: 0, duration: 1, ease: "power3.out", delay: 0.4 });
+        gsap.from(".hero-final-btns", { y: 30, opacity: 0, duration: 1, ease: "power3.out", delay: 0.6 });
+        gsap.from(".hero-final-badge", { y: 20, opacity: 0, duration: 0.8, ease: "power3.out", delay: 0.1 });
+        gsap.from(".hero-final-metrics", { y: 40, opacity: 0, duration: 1, ease: "power3.out", delay: 0.8 });
 
         // Reveal animations for sections
         const sectionsToReveal = gsap.utils.toArray('.section-header');
@@ -333,10 +437,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Staggered card animations
-        gsap.from(".help-card", {
+        // Staggered card animations for Who We Help
+        gsap.from(".who-help-orb", {
             scrollTrigger: {
-                trigger: ".help-cards",
+                trigger: ".who-help-track",
                 start: "top 80%",
             },
             y: 50,
@@ -346,8 +450,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: "back.out(1.7)"
         });
         
-        // Floating effect for badges
-        gsap.to(".hero-badge", {
+        // Floating effect for hero badge
+        gsap.to(".hero-final-badge", {
             y: -10,
             duration: 2,
             yoyo: true,

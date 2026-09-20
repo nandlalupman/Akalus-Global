@@ -47,6 +47,8 @@ html {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
@@ -72,6 +74,19 @@ a {
 img, video {
     max-width: 100%;
     display: block;
+}
+
+/* Screen-reader only — visually hidden but accessible */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .container {
@@ -140,10 +155,11 @@ img, video {
 }
 
 .animate-on-scroll {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 0;
+    transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     transition-delay: var(--delay, 0s);
+    will-change: opacity, transform;
 }
 
 .animate-on-scroll.visible {
@@ -326,6 +342,11 @@ img, video {
     background: var(--primary-dark);
     transform: translateY(-1px);
     box-shadow: 0 4px 16px rgba(232, 130, 42, 0.3);
+}
+
+.nav-cta:active {
+    transform: scale(0.96);
+    box-shadow: none;
 }
 
 /* Hamburger */
@@ -574,6 +595,11 @@ img, video {
     box-shadow: 0 15px 35px -5px rgba(249, 115, 22, 0.5);
 }
 
+.hf-btn-primary:active {
+    transform: scale(0.97);
+    box-shadow: 0 5px 15px -3px rgba(249, 115, 22, 0.3);
+}
+
 .hf-btn-ghost {
     display: inline-flex;
     align-items: center;
@@ -592,6 +618,11 @@ img, video {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.4);
     transform: translateY(-2px);
+}
+
+.hf-btn-ghost:active {
+    transform: scale(0.97);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .hero-final-metrics {
@@ -748,6 +779,11 @@ img, video {
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 32px rgba(232, 130, 42, 0.4);
+}
+
+.btn-primary:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 12px rgba(232, 130, 42, 0.25);
 }
 
 .btn-primary::before {
@@ -1038,6 +1074,10 @@ img, video {
     transform: translateY(-8px);
 }
 
+.help-card:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
 .help-card:hover::before {
     transform: scaleX(1);
 }
@@ -1106,6 +1146,10 @@ img, video {
     border-color: rgba(232, 130, 42, 0.25);
     transform: translateY(-6px);
     box-shadow: 0 8px 32px rgba(232, 130, 42, 0.1);
+}
+
+.promise-card:active {
+    transform: translateY(-2px) scale(0.98);
 }
 
 .promise-icon {
@@ -2422,4 +2466,454 @@ img, video {
     font-size: 0.8rem;
     color: #64748b;
     line-height: 1.4;
+}
+
+/* ==========================================================================
+   WHO WE HELP — CIRCULAR ORB CAROUSEL
+   ========================================================================== */
+.who-we-help {
+    background-color: #ffffff;
+    padding: 60px 0 40px;
+    overflow: hidden;
+}
+
+.who-help-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.who-help-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    color: #1e293b;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.who-help-title-line {
+    height: 1px;
+    width: 40px;
+    background: #e2e8f0;
+    display: inline-block;
+}
+
+.who-help-subtitle {
+    color: #64748b;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Carousel container */
+.who-help-carousel {
+    position: relative;
+}
+
+.who-help-track {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    padding: 20px 0 10px;
+}
+
+/* Individual orb card */
+.who-help-orb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 20px 16px 24px;
+    border-radius: 24px;
+    min-width: 220px;
+    max-width: 260px;
+    flex-shrink: 0;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.who-help-orb:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.who-help-orb:active {
+    transform: translateY(-2px) scale(0.97);
+}
+
+/* The circular orb */
+.orb-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.who-help-orb:hover .orb-circle {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.orb-circle--orange {
+    background: linear-gradient(145deg, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%);
+    box-shadow: 0 8px 32px rgba(234, 88, 12, 0.15), inset 0 -2px 6px rgba(234, 88, 12, 0.08);
+}
+
+.orb-circle--blue {
+    background: linear-gradient(145deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%);
+    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15), inset 0 -2px 6px rgba(37, 99, 235, 0.08);
+}
+
+.orb-circle--navy {
+    background: linear-gradient(145deg, #eef2ff 0%, #e0e7ff 50%, #c7d2fe 100%);
+    box-shadow: 0 8px 32px rgba(30, 58, 138, 0.15), inset 0 -2px 6px rgba(30, 58, 138, 0.08);
+}
+
+/* Inner icon ring (glassmorphism) */
+.orb-icon-ring {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.orb-circle--orange .orb-icon-ring {
+    color: #ea580c;
+}
+
+.orb-circle--blue .orb-icon-ring {
+    color: #2563eb;
+}
+
+.orb-circle--navy .orb-icon-ring {
+    color: #1e3a8a;
+}
+
+.who-help-orb:hover .orb-icon-ring {
+    transform: scale(1.08);
+}
+
+/* Pulse ring animation */
+.orb-pulse {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    opacity: 0;
+    animation: orb-pulse-ring 3s ease-in-out infinite;
+}
+
+.orb-circle--orange .orb-pulse {
+    border-color: rgba(234, 88, 12, 0.25);
+}
+
+.orb-circle--blue .orb-pulse {
+    border-color: rgba(37, 99, 235, 0.25);
+}
+
+.orb-circle--navy .orb-pulse {
+    border-color: rgba(30, 58, 138, 0.25);
+}
+
+@keyframes orb-pulse-ring {
+    0%, 100% { opacity: 0; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
+}
+
+/* Text styles */
+.orb-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.orb-desc {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.55;
+    margin-bottom: 12px;
+    max-width: 200px;
+}
+
+.orb-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+    transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.who-help-orb:hover .orb-cta {
+    gap: 10px;
+    color: var(--primary-dark);
+}
+
+/* Carousel dots */
+.carousel-dots {
+    display: none;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding-bottom: 8px;
+}
+
+.carousel-dots .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d1d5db;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.carousel-dots .dot.active {
+    background: var(--primary);
+    width: 24px;
+    border-radius: 100px;
+}
+
+/* ==========================================================================
+   IMPACT GALLERY — PROPER CSS
+   ========================================================================== */
+.impact-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+}
+
+.impact-gallery-item {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.impact-gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.impact-gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   CONTACT CARDS — CLICKABLE STYLES
+   ========================================================================== */
+.contact-card-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 24px;
+    background: var(--off-white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: var(--transition);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    min-height: 120px;
+    justify-content: center;
+}
+
+.contact-card-link:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-card-link:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
+   KEYBOARD FOCUS & ACCESSIBILITY
+   ========================================================================== */
+*:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.nav-link:focus-visible,
+.nav-cta:focus-visible,
+.btn:focus-visible,
+.hf-btn-primary:focus-visible,
+.hf-btn-ghost:focus-visible {
+    outline: 2px solid var(--primary-light);
+    outline-offset: 4px;
+}
+
+/* Remove focus outline for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ==========================================================================
+   BACK-TO-TOP BUTTON
+   ========================================================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(232, 130, 42, 0.35);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(232, 130, 42, 0.45);
+}
+
+.back-to-top:active {
+    transform: scale(0.9);
+}
+
+.back-to-top svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==========================================================================
+   MOBILE TOUCH IMPROVEMENTS
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* === MOBILE SCROLL FIX === */
+    html, body {
+        overflow-x: hidden;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        height: auto !important;
+    }
+
+    /* Who We Help — horizontal scroll carousel */
+    .who-help-track {
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        gap: 16px;
+        padding: 20px 16px 10px;
+        /* Hide scrollbar but keep functionality */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .who-help-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .who-help-orb {
+        min-width: 75vw;
+        max-width: 80vw;
+        scroll-snap-align: center;
+        background: #f8fafc;
+        border-radius: 24px;
+        padding: 28px 20px 28px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .carousel-dots {
+        display: flex;
+    }
+
+    /* Impact gallery — 1 column on mobile */
+    .impact-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .impact-gallery-item img {
+        height: 180px;
+    }
+
+    /* Bigger touch targets on mobile */
+    .mobile-link {
+        padding: 14px 20px;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-cta {
+        padding: 16px 32px;
+        min-height: 48px;
+        text-align: center;
+    }
+
+    /* Back to top — adjust position */
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    /* Larger touch targets for pipeline steps */
+    .pipeline-step {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .who-help-title {
+        font-size: 1.5rem;
+    }
+
+    .who-help-orb {
+        min-width: 80vw;
+    }
+}
+
+/* ==========================================================================
+   TABLET RESPONSIVE — Impact Gallery 2-col
+   ========================================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .impact-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
