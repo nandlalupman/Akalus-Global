@@ -2,6 +2,8 @@
 
 The existing vanilla HTML/CSS/JavaScript website now includes a coordinator workspace (`admin.html`), a student workspace (`student.html`), and four supplied training clips on the public website and in the dashboard.
 
+The public website also uses six photographs extracted from those clips, crawlable training/watch pages, visible FAQs, canonical/social metadata, structured data, robots.txt and an XML sitemap. See `SEO-AUDIT.md` for implementation details, validation and the remaining Search Console/Firebase setup limits. The public pages are generated at build time; `npm run dev` serves the generated `dist/` directory.
+
 ## Run and build
 
 Use Node.js 20 or newer.

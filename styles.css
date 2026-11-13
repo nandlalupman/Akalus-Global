@@ -1169,7 +1169,7 @@ img, video {
     transform: scale(1.15) rotate(5deg);
 }
 
-.promise-card h4 {
+.promise-card h3 {
     font-size: 0.95rem;
     color: var(--white);
     font-weight: 600;
@@ -1369,7 +1369,7 @@ img, video {
     box-shadow: 0 4px 12px rgba(232, 130, 42, 0.3);
 }
 
-.journey-step h4 {
+.journey-step h3 {
     font-size: 1rem;
     font-weight: 700;
     color: var(--white);
@@ -1549,7 +1549,7 @@ img, video {
     color: var(--white);
 }
 
-.org-card h4 {
+.org-card h3 {
     font-size: 1.1rem;
     color: var(--white);
     font-weight: 700;
@@ -1654,7 +1654,7 @@ img, video {
     gap: 4px;
 }
 
-.about-not h4 {
+.about-not h3 {
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 12px;
@@ -1813,7 +1813,7 @@ img, video {
     display: block;
 }
 
-.notable-invitations h4 {
+.notable-invitations h3 {
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--text-dark);
@@ -2012,7 +2012,7 @@ img, video {
     gap: 40px;
 }
 
-.footer-col h4 {
+.footer-col h3 {
     font-size: 0.8rem;
     font-weight: 700;
     color: var(--white);

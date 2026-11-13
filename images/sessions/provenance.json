@@ -1,0 +1,50 @@
+[
+  {
+    "name": "presentation",
+    "source": "communication.mp4",
+    "seconds": 2.0,
+    "width": 208,
+    "height": 368,
+    "alt": "A learner practising a presentation in a classroom"
+  },
+  {
+    "name": "interview-practice",
+    "source": "interview.mp4",
+    "seconds": 96.0,
+    "width": 368,
+    "height": 208,
+    "alt": "Learners and a facilitator taking part in interview practice"
+  },
+  {
+    "name": "conversation",
+    "source": "workshop.mp4",
+    "seconds": 17.0,
+    "width": 368,
+    "height": 208,
+    "alt": "Two participants practising a conversation in a classroom"
+  },
+  {
+    "name": "classroom-activity",
+    "source": "workshop.mp4",
+    "seconds": 11.0,
+    "width": 368,
+    "height": 208,
+    "alt": "Learners working on a written classroom activity"
+  },
+  {
+    "name": "peer-learning",
+    "source": "interview.mp4",
+    "seconds": 65.0,
+    "width": 368,
+    "height": 208,
+    "alt": "Participants sharing ideas during a classroom session"
+  },
+  {
+    "name": "group-session",
+    "source": "group.mp4",
+    "seconds": 20.0,
+    "width": 208,
+    "height": 368,
+    "alt": "Participants gathered for an interactive group learning session"
+  }
+]

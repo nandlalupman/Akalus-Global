@@ -3,6 +3,7 @@
 Vanilla HTML/CSS/JavaScript static website. See README.md for the current architecture and setup.
 
 - Public website: index.html, styles.css, script.js, auth-ui.js, public-training.js.
+- Public SEO/imagery: seo-site.css, site-content.mjs, images/sessions/, images/social/; build-time public pages in scripts/generate-public.mjs. Read SEO-AUDIT.md for current verification and limits.
 - Career dashboard: admin.html / student.html, dashboard.js, dashboard.css.
 - Data: data.js (browser-local demo or live Firestore), domain.mjs (validation and shared logic).
 - Identity: auth.js and public Firebase configuration in firebase-config.js. No production credentials are present.

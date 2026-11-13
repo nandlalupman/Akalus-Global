@@ -11,3 +11,5 @@
 .profile-hero p,.student-card h3,.student-card p{overflow-wrap:anywhere}.profile-details>*{min-width:0}
 
 .due-filter{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:10px}.filters .due-filter input{flex:none;min-width:0;width:auto;accent-color:var(--orange)}
+
+.video-frame video{height:auto}

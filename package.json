@@ -7,7 +7,7 @@
     "dev": "serve dist -l 3000",
     "start": "serve dist -l 3000",
     "build": "node scripts/build.mjs",
-    "test": "node --test tests/*.test.mjs && node scripts/check-static.mjs"
+    "test": "node scripts/build.mjs && node --test tests/*.test.mjs && node scripts/check-static.mjs"
   },
   "dependencies": {
     "serve": "^14.2.4"
