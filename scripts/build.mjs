@@ -1,0 +1,10 @@
+import { mkdir, copyFile, cp } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const out=path.join(root,'dist');
+await mkdir(out,{recursive:true});
+const files=['index.html','admin.html','student.html','styles.css','script.js','firebase-config.js','auth.js','auth-ui.js','dashboard.js','dashboard.css','data.js','domain.mjs','training.js','public-training.js','serve.json','favicon.svg'];
+for(const file of files)await copyFile(path.join(root,file),path.join(out,file));
+for(const dir of ['images','media'])await cp(path.join(root,dir),path.join(out,dir),{recursive:true});
+console.log(`Built ${files.length} application files plus images and training media in dist/.`);

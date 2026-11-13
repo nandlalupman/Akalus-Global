@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function admin() { return signedIn() && request.auth.token.get('admin', false) == true; }
+    function studentOwner(id) {
+      return signedIn() && get(/databases/$(database)/documents/students/$(id)).data.ownerUid == request.auth.uid;
+    }
+    function validStudent(d) {
+      return d.keys().hasOnly(['name','email','phone','course','batch','targetRole','coordinator','ownerUid','services','completedVideos','notes','history','updatedAt'])
+        && d.name is string && d.name.size() > 0 && d.name.size() <= 120
+        && d.email is string && d.email.size() <= 320
+        && d.ownerUid is string && d.ownerUid.size() > 0 && d.ownerUid.size() <= 128
+        && d.services is list && d.services.hasOnly(['Career assessment','Resume support','Communication coaching','Mock interview','Job applications'])
+        && d.completedVideos is list && d.completedVideos.hasOnly(['communication','workshop','interview','group'])
+        && d.history is list && d.history.size() <= 100
+        && d.notes is string && d.notes.size() <= 2000;
+    }
+    match /students/{studentId} {
+      allow read: if admin() || (signedIn() && resource.data.ownerUid == request.auth.uid);
+      allow create, update: if admin() && validStudent(request.resource.data);
+      allow delete: if false;
+    }
+    function validApplication(d) {
+      return d.keys().hasOnly(['studentId','company','role','requirements','package','location','status','appliedOn','followUp','interviewDate','interviewAt','jobUrl','notes','history','ownerUid','updatedAt'])
+        && d.studentId is string
+        && exists(/databases/$(database)/documents/students/$(d.studentId))
+        && d.ownerUid == get(/databases/$(database)/documents/students/$(d.studentId)).data.ownerUid
+        && d.company is string && d.company.size() > 0 && d.company.size() <= 160
+        && d.role is string && d.role.size() > 0 && d.role.size() <= 160
+        && d.status in ['Applied','Shortlisted','Interview scheduled','Offer received','Joined','Rejected','Withdrawn']
+        && d.history is list && d.history.size() <= 100
+        && d.requirements is string && d.requirements.size() <= 2000
+        && d.notes is string && d.notes.size() <= 2000;
+    }
+    match /applications/{applicationId} {
+      // Denormalized ownership supports a single-field query without exposing other students.
+      allow read: if admin() || (signedIn() && resource.data.ownerUid == request.auth.uid && studentOwner(resource.data.studentId));
+      allow create, update: if admin() && validApplication(request.resource.data);
+      allow delete: if false;
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

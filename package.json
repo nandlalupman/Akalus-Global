@@ -4,10 +4,13 @@
   "description": "Static website for Akalus Global with Firebase Auth and GSAP",
   "main": "index.html",
   "scripts": {
-    "dev": "serve . -p 3000",
-    "start": "npx serve . -p 3000"
+    "dev": "serve dist -l 3000",
+    "start": "serve dist -l 3000",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs && node scripts/check-static.mjs"
   },
   "dependencies": {
     "serve": "^14.2.4"
-  }
+  },
+  "type": "module"
 }

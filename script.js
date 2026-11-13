@@ -304,96 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     // AUTH MODAL LOGIC
     // ============================================
-    const authModal = document.getElementById('authModal');
-    const loginBtn = document.getElementById('loginBtn');
-    const mobileLoginBtn = document.getElementById('mobileLoginBtn');
-    const closeAuthModal = document.getElementById('closeAuthModal');
-    const authTabs = document.querySelectorAll('.auth-tab');
-    const authForms = document.querySelectorAll('.auth-form');
-
-    const openAuthModal = () => {
-        if (authModal) {
-            authModal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-    };
-
-    const closeAuthModalFn = () => {
-        if (authModal) {
-            authModal.classList.remove('show');
-            document.body.style.overflow = '';
-        }
-    };
-
-    if (loginBtn) {
-        loginBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openAuthModal();
-        });
-    }
-
-    // Mobile Sign In button
-    if (mobileLoginBtn) {
-        mobileLoginBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            closeMobileMenu();
-            // Small delay so menu closes first
-            setTimeout(openAuthModal, 300);
-        });
-    }
-
-    if (closeAuthModal) {
-        closeAuthModal.addEventListener('click', closeAuthModalFn);
-    }
-
-    // Close on outside click
-    if (authModal) {
-        window.addEventListener('click', (e) => {
-            if (e.target === authModal) {
-                closeAuthModalFn();
-            }
-        });
-    }
-
-    // Tab Switching
-    authTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            authTabs.forEach(t => t.classList.remove('active'));
-            authForms.forEach(f => f.classList.remove('active'));
-            
-            tab.classList.add('active');
-            document.getElementById(`${tab.dataset.tab}Form`).classList.add('active');
-        });
-    });
-
-    // Mock Firebase Logic (Simulated since we don't have real keys yet)
-    document.getElementById('loginForm')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = e.target.querySelector('button');
-        const originalText = btn.textContent;
-        btn.textContent = "Authenticating...";
-        setTimeout(() => {
-            btn.textContent = originalText;
-            alert("Mock Login Successful! Proceeding as Admin for demonstration.");
-            closeAuthModalFn();
-            document.getElementById('loginBtn').style.display = 'none';
-            if (mobileLoginBtn) mobileLoginBtn.style.display = 'none';
-            document.getElementById('adminLink').style.display = 'block';
-        }, 1000);
-    });
-
-    document.getElementById('registerForm')?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const btn = e.target.querySelector('button');
-        const originalText = btn.textContent;
-        btn.textContent = "Creating Account...";
-        setTimeout(() => {
-            btn.textContent = originalText;
-            alert("Mock Registration Successful! Database logic triggered.");
-            closeAuthModalFn();
-        }, 1000);
-    });
-
     // ============================================
     // KEYBOARD SUPPORT (Escape key)
     // ============================================
@@ -403,17 +313,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (mobileMenu.classList.contains('active')) {
                 closeMobileMenu();
             }
-            // Close auth modal
-            if (authModal && authModal.classList.contains('show')) {
-                closeAuthModalFn();
-            }
         }
     });
 
     // ============================================
     // GSAP ANIMATIONS (Trending & Professional)
     // ============================================
-    if (typeof gsap !== 'undefined') {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         gsap.registerPlugin(ScrollTrigger);
 
         // Hero Final Content — corrected selectors
